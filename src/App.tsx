@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
-import Button from './components/common/button';
+import Button from 'components/common/button';
 
 function App() {
   return (
