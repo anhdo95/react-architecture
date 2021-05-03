@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { Route, Switch } from 'react-router-dom';
 // import { useSelector } from 'react-redux'
 
@@ -12,7 +12,7 @@ function NestingSwitch() {
   const isAuthenticated = true;
 
   const renderRoute = useCallback(
-    function (route: RouteConfig, prefix?: string): JSX.Element {
+    (route: RouteConfig, prefix?: string): JSX.Element => {
       const path = prefix ? prefix + route.path : route.path;
 
       const routeProps = {
@@ -22,9 +22,7 @@ function NestingSwitch() {
       };
 
       if (route.children?.length) {
-        return (
-          <Switch>{route.children.map(r => renderRoute(r, route.path))}</Switch>
-        );
+        return <Switch>{route.children.map(r => renderRoute(r, route.path))}</Switch>;
       }
 
       if (route.private) {
@@ -34,15 +32,10 @@ function NestingSwitch() {
 
       return <Route {...routeProps} component={route.component} />;
     },
-    [isAuthenticated]
+    [isAuthenticated],
   );
 
-  const renderRoutes = useCallback(
-    function () {
-      return routes.map(r => renderRoute(r));
-    },
-    [renderRoute]
-  );
+  const renderRoutes = useCallback(() => routes.map(r => renderRoute(r)), [renderRoute]);
 
   return <Switch>{renderRoutes()}</Switch>;
 }

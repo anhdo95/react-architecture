@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
 import { getDisplayName } from 'shared/utils/hoc';
 
@@ -5,9 +6,7 @@ interface Props {
   authenticated: boolean;
 }
 
-export default function withAuth(
-  WrappedComponent: React.FC<RouteComponentProps>
-) {
+export default function withAuth(WrappedComponent: React.FC<RouteComponentProps>) {
   function WithAuth({ authenticated, ...rest }: Props) {
     return (
       <Route

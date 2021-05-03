@@ -17,7 +17,12 @@ export interface RouteConfig extends BaseRouteConfig {
 }
 
 const routes: RouteConfig[] = [
-  { path: '/', component: Home, exact: true, private: true },
+  {
+    path: '/',
+    component: Home,
+    exact: true,
+    private: true,
+  },
   { path: '/sign-in', component: SignIn },
   { path: '/sign-up', component: SignUp },
   {
@@ -25,7 +30,8 @@ const routes: RouteConfig[] = [
     component: Posts,
     children: [
       { path: '/', component: Posts, exact: true },
-      { path: '/create', component: PostsCreate }],
+      { path: '/create', component: PostsCreate },
+    ],
   },
 ];
 

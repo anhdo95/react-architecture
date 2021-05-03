@@ -1,11 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-const PostsCreate: React.FC = () => {
-  return (
-    <div>
-      PostsCreate
-    </div>
-  )
-}
+const PostsCreate: React.FC = () => <div>PostsCreate</div>;
 
-export default PostsCreate
+export default PostsCreate;
