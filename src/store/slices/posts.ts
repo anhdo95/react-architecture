@@ -13,6 +13,7 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
+    fetchPosts() {},
     setPosts(state, action: PayloadAction<any[]>) {
       state.posts = action.payload;
     },
@@ -24,4 +25,4 @@ export const postsReducer = postsSlice.reducer;
 export const postsActions = postsSlice.actions;
 
 // Selectors
-export const selectPosts = (state: RootState) => state.posts;
+export const selectPosts = (state: RootState) => state.posts.posts;

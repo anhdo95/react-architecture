@@ -7,12 +7,18 @@ const Home: React.FC = () => {
   const posts = useAppSelector(selectPosts);
 
   useEffect(() => {
-    dispatch(postsActions.setPosts([{ id: 122, title: 'The react architecture' }]));
-  }, []);
+    dispatch(postsActions.fetchPosts());
+  }, [dispatch]);
 
-  console.log('posts :>> ', posts);
-
-  return <div>Home</div>;
+  return (
+    <ul>
+      {posts.map(post => (
+        <li key={post.objectID}>
+          <h3>{post.title}</h3>
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 export default Home;
