@@ -1,13 +1,17 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import Router from 'routing/router';
+import store from 'store';
 import './App.scss';
 
 function App() {
   return (
-    <Router>
-      {/* Modal */}
-      {/* Progress bar */}
-    </Router>
+    <Provider store={store}>
+      <Router>
+        {/* Modal */}
+        {/* Progress bar */}
+      </Router>
+    </Provider>
   );
 }
 
